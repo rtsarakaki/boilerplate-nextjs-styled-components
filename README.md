@@ -231,3 +231,5 @@ rules:
   'react/react-in-jsx-scope': 'off'
   '@typescript-eslint/explicit-module-boundary-types': 'off'
   ```
+Como usar o testing library
+https://testing-library.com/docs/react-testing-library/cheatsheet
