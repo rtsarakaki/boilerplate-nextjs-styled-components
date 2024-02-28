@@ -114,3 +114,31 @@ yarn add --dev eslint-plugin-prettier eslint-config-prettier
 	},
 }
 ```
+husky (validar commits) - precisa ser o projeto raiz do git
+```javascript
+yarn add --dev husky
+npx husky init
+
+yarn add lint-staged --dev
+```
+
+configurar pre-commit
+```javascript
+npx --no-install lint-staged
+````
+
+configurar package.json
+```json
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --max-warnings=0",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "next lint src --fix"
+    ]
+  },
+```
