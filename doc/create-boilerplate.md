@@ -142,3 +142,55 @@ configurar package.json
     ]
   },
 ```
+### Configurar jest, jest dom e react testing library
+```javascript
+yarn add --dev jest @babel/preset-typescript @types/jest jest-environment-jsdom
+
+yarn add --dev @testing-library/react @testing-library/jest-dom
+
+find . -name "node_modules" -type d -exec rm -rf {} +
+
+rm yarn.lock
+
+yarn cache clean
+
+yarn install
+
+yarn test
+```
+
+Criar pasta .jest e dentro dela o arquivo setup.ts com o conteúdo
+```javascript
+import '@testing-library/jest-dom'
+```
+
+atualizar .eslintrc.yml para:
+```javascript
+env:
+  browser: true
+  es2021: true
+  jest: true
+  node: true
+settings:
+  react:
+    version: detect
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:react/recommended
+  - plugin:prettier/recommended
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - '@typescript-eslint'
+  - react
+  - react-hooks
+rules:
+  'react-hooks/exhaustive-deps': 'warn'
+  'react-hooks/rules-of-hooks': 'error'
+  'react/prop-types': 'off'
+  'react/react-in-jsx-scope': 'off'
+  '@typescript-eslint/explicit-module-boundary-types': 'off'
+  ```
