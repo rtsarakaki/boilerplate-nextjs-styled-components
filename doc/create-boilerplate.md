@@ -142,3 +142,17 @@ configurar package.json
     ]
   },
 ```
+### Configurar Jest
+```javascript
+yarn add --dev jest @babel/preset-typescript @types/jest jest-environment-jsdom
+
+find . -name "node_modules" -type d -exec rm -rf {} +
+
+rm yarn.lock
+
+yarn cache clean
+
+yarn install
+
+yarn test
+```
