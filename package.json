@@ -9,12 +9,12 @@
     "lint": "next lint --max-warnings=0",
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "prepare": "husky"
+    "prepare": "husky",
+    "clean": "find . -name 'node_modules' -type d -exec rm -rf {} + && rm -f yarn.lock && yarn cache clean && yarn install"
   },
   "lint-staged": {
-    "src/**/*": [
-      "next lint src --fix"
-    ]
+    "src/**/*": "next lint src --fix",
+    "src/**/*.{test,spec}.{js,ts,jsx,tsx}": "yarn test"
   },
   "dependencies": {
     "next": "14.1.0",
