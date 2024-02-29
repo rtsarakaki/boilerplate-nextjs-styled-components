@@ -233,3 +233,36 @@ rules:
   ```
 Como usar o testing library
 https://testing-library.com/docs/react-testing-library/cheatsheet
+
+
+Ajustar package.json para que se não houver testes não de erro.
+```javascript
+  "lint-staged": {
+    "src/**/*": [
+      "next lint src --fix",
+      "yarn test --findRelatedTests --bail"
+    ]
+  },
+  ```
+
+Configurar styled components
+```javascript
+yarn add --dev babel-plugin-styled-components @types/styled-components
+
+yarn add styled-components
+
+```
+
+Atualizar .babelrc
+```javascript
+{
+	"plugins": [
+"babel-plugin-styled-components",
+	{
+		"ssr": true
+	}
+	],
+	"presets": ["next/babel", "@babel/preset-typescript"]
+}
+
+```
