@@ -2,6 +2,7 @@
 
 import Head from 'next/head'
 import styled from 'styled-components'
+import tw from 'twin.macro'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <title>Home</title>
       </Head>
       <StyledButton>In Styled Components</StyledButton>
+      <TailwindButton>In Tailwind</TailwindButton>
     </div>
   )
 }
@@ -17,4 +19,9 @@ export default function Home() {
 const StyledButton = styled.button`
   background: red;
   color: white;
+`
+
+const TailwindButton = tw.button`
+bg-red-500
+text-white
 `
