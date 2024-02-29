@@ -266,3 +266,8 @@ Atualizar .babelrc
 }
 
 ```
+### Config twin.macro
+```javascript
+yarn add twin.macro
+yarn add --dev babel-plugin-twin
+```

@@ -9,18 +9,19 @@
     "lint": "next lint --max-warnings=0",
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "prepare": "husky"
+    "prepare": "husky",
+    "clean": "find . -name 'node_modules' -type d -exec rm -rf {} + && rm -f yarn.lock && yarn cache clean && yarn install"
   },
   "lint-staged": {
-    "src/**/*": [
-      "next lint src --fix"
-    ]
+    "src/**/*": "next lint src --fix",
+    "src/**/*.{test,spec}.{js,ts,jsx,tsx}": "yarn test"
   },
   "dependencies": {
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "twin.macro": "^3.4.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.23.3",
@@ -35,6 +36,7 @@
     "@typescript-eslint/parser": "^7.1.0",
     "autoprefixer": "^10.0.1",
     "babel-plugin-styled-components": "^2.1.4",
+    "babel-plugin-twin": "^1.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",

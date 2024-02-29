@@ -1,11 +1,8 @@
 {
   "plugins": [
-    [
-      "babel-plugin-styled-components",
-      {
-        "ssr": true
-      }
-    ]
+    ["babel-plugin-styled-components",  { "ssr": true }],
+    ["babel-plugin-twin", { "debug": false }],
+    "babel-plugin-macros"
   ],
   "presets": ["next/babel", "@babel/preset-typescript"]
 }
