@@ -201,6 +201,17 @@ Criar pasta .jest e dentro dela o arquivo setup.ts com o conteúdo
 import '@testing-library/jest-dom'
 ```
 
+Crie o arquivo jest.config.js
+```javascript
+module.exports = {
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.ts(x)'],
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts']
+}
+```
+
 atualizar .eslintrc.yml para:
 ```javascript
 env:
@@ -239,8 +250,7 @@ Ajustar package.json para que se não houver testes não de erro.
 ```javascript
   "lint-staged": {
     "src/**/*": [
-      "next lint src --fix",
-      "yarn test --findRelatedTests --bail"
+      "next lint src --fix"
     ]
   },
   ```
@@ -256,18 +266,20 @@ yarn add styled-components
 Atualizar .babelrc
 ```javascript
 {
-	"plugins": [
-"babel-plugin-styled-components",
-	{
-		"ssr": true
-	}
-	],
-	"presets": ["next/babel", "@babel/preset-typescript"]
+  "plugins": [
+    ["babel-plugin-styled-components", { "ssr": true }]
+  ],
+  "presets": ["next/babel", "@babel/preset-typescript"]
 }
 
-```
-### Config twin.macro
+Integrar jest com styledcomponents
 ```javascript
-yarn add twin.macro
-yarn add --dev babel-plugin-twin
+yarn add --dev jest-styled-components
+```
+
+Instalando Next PWA
+
+```javascript
+yarn add next-pwa
+yarn add webpack@4
 ```
